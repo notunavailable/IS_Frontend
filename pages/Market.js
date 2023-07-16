@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/Market.module.css';
+import styles from '../styles/market.module.css';
 
 export default function Market() {
     const products = [
