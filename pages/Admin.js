@@ -6,6 +6,8 @@ import RegisterSkill from '../components/admin/RegisterSkill'
 import RegisterAttribute from '../components/admin/RegisterAttribute'
 import SkillCard from '../components/admin/SkillCard'
 
+import {ATTR_GET, UNRQUEUE_GET_SKILL} from '../utils/api-defs'
+
 const Admin = ({ attributes, unregisteredSkills }) => {
     //button toggle active buttons
     //[skill, attribute, difficulty]
@@ -60,10 +62,10 @@ const Admin = ({ attributes, unregisteredSkills }) => {
 
 export async function getServerSideProps() {
     try {
-        const attributeResponse = await fetch('http://localhost:5001/api/v1/attribute/get/all');
+        const attributeResponse = await fetch(ATTR_GET());
         const attributes = await attributeResponse.json(); // Assuming the API response is JSON
 
-        const unregisteredSkillsResponse = await fetch('http://localhost:5001/api/v1/unrQueue/get/Skill');
+        const unregisteredSkillsResponse = await fetch(UNRQUEUE_GET_SKILL());
         const unregisteredSkills = await unregisteredSkillsResponse.json(); // Assuming the API response is JSON
         return {
             props: {

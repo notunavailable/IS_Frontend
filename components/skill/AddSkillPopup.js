@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styles from '../../styles/form.module.css'
+import {USER_ADDSKILL} from '../../utils/api-defs'
 
 const AddSkillPopup = ({ id }) => {
     const [description, setDescription] = useState("");
     const onSubmit = async () => {
         //POST form values
-        const res = await fetch(`http://localhost:5001/api/v1/user/addSkill/${id}`, {
+        const res = await fetch(USER_ADDSKILL({id: id}), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

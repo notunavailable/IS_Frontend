@@ -9,14 +9,14 @@ const Header = () => {
     async function onLogOut() {
         const status = await signOut('credentials', {
             redirect: true,
-            callbackUrl: 'http://localhost:3000/Login'
+            callbackUrl: `/Login`
         });
     }
 
     const renderButton = () => {
         if (status == "authenticated") {
             return (
-                <Link href="http://localhost:3000/Login" onClick={onLogOut}>
+                <Link href="/Login" onClick={onLogOut}>
                     <h4 className={styles.pages}>Sign Out</h4>
                 </Link>);
         } else if (status == "loading") {
@@ -29,16 +29,16 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
-            <Link href="http://localhost:3000">
+            <Link href="/">
                 <h4 className={styles.pages}>Home</h4>
             </Link>
-            <Link href="http://localhost:3000/About">
+            <Link href="/About">
                 <h4 className={styles.pages}>About</h4>
             </Link>
-            <Link href="http://localhost:3000/Forum">
+            <Link href="/Forum">
                 <h4 className={styles.pages}>Forum</h4>
             </Link>
-            <Link href="http://localhost:3000/Admin">
+            <Link href="/Admin">
                 <h4 className={styles.pages}>Admin</h4>
             </Link>
             {renderButton()}

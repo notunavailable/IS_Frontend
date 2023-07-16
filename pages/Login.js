@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/form.module.css';
 import { signIn } from "next-auth/react"
 import { hash } from 'bcryptjs';
+import {USER_REGISTER} from '../utils/api-defs'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const Login = () => {
             redirect: true,
             email: email,
             password: password,
-            callbackUrl: 'http://localhost:3000'
+            callbackUrl: '/'
         });
         console.log(status);
     }
@@ -32,7 +33,7 @@ const Login = () => {
         }
         const hashedPassword = await hash(password, 12);
         //POST form values
-        const res = await fetch('http://localhost:5001/api/v1/user/register', {
+        const res = await fetch(USER_REGISTER(), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ const Login = () => {
             redirect: true,
             email: email,
             password: password,
-            callbackUrl: 'http://localhost:3000/'
+            callbackUrl: '/'
         });
 
     };

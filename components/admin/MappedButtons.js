@@ -1,5 +1,4 @@
 import styles from '../../styles/admin/adminComponents.module.css';
-import { useState } from 'react';
 
 const MappedButtons = ({ attributes, affectedAttributes, setAffectedAttributes, isActive, setIsActive }) => {
 

@@ -1,11 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { useState, useEffect } from 'react'
-import { getSession, useSession } from "next-auth/react"
+import { getSession } from "next-auth/react"
 import Link from 'next/link'
-import HabitCheck from '../components/HabitCheck'
+import {USER_STATUS} from '../utils/api-defs'
 
 import Status from '../components/Status'
 
@@ -14,7 +10,7 @@ export default function Home({ status }) {
     <main className={styles.main}>
       <Status status={status} />
       <div className={styles.grid}>
-        <Link href="/Skills" className={styles.card}>
+        <Link href="/Skills" className={`${styles.card} ${styles.active}`}>
           <h2>
             Skills <span className={styles.arrow}>&rarr;</span>
           </h2>
@@ -22,28 +18,37 @@ export default function Home({ status }) {
             Practice and evolve your skills.
           </p>
         </Link>
-        <Link href="/Habits" className={styles.card}>
+        <Link href="/" className={styles.card}>
           <h2>
             Habits <span className={styles.arrow}>&rarr;</span>
           </h2>
           <p>
             Build and maintain habits.
           </p>
+          <p style = {{color: "#000000"}}>
+            Not available at this time.
+          </p>
         </Link>
-        <Link href="/Market" className={styles.card}>
+        <Link href="/" className={styles.card}>
           <h2>
             Market <span className={styles.arrow}>&rarr;</span>
           </h2>
           <p>
             Shop for a plethora of things.
           </p>
+          <p style = {{color: "#000000"}}>
+            Not available at this time.
+          </p>
         </Link>
-        <Link href="/Quests" className={styles.card}>
+        <Link href="/" className={styles.card}>
           <h2>
             Quests <span className={styles.arrow}>&rarr;</span>
           </h2>
           <p>
             View your active quests.
+          </p>
+          <p style = {{color: "#000000"}}>
+            Not available at this time.
           </p>
         </Link>
       </div>
@@ -62,7 +67,7 @@ export async function getServerSideProps(context) {
     }
   }
   let status;
-  const response = await fetch(`http://localhost:5001/api/v1/user/status/${session.id}`);
+  const response = await fetch(USER_STATUS({id: session.id}));
   if (response.ok) {
     const text = await response.text();
     if (text.length > 0) {

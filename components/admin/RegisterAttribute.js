@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../../styles/form.module.css';
+import ATTR_REGISTER from '../../utils/api-defs'
 
 
 const RegisterAttribute = () => {
@@ -11,7 +12,7 @@ const RegisterAttribute = () => {
         if (difficulty == "") {
             console.log("Please pick a rarity based difficulty")
         } else {
-            await fetch('http://localhost:5001/api/v1/attribute/register', {
+            await fetch(ATTR_REGISTER(), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

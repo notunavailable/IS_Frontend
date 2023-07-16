@@ -1,5 +1,6 @@
 import ToggleSwitch from '../form/ToggleSwitch'
 import {useState, useEffect} from 'react'
+import {USER_PRACTICE} from '../../utils/api-defs'
 
 const PracticingSwitch = ({practicing, skillId, userId}) => {
     const [checked, setChecked] = useState(practicing);
@@ -7,7 +8,7 @@ const PracticingSwitch = ({practicing, skillId, userId}) => {
     const [apiData, setApiData] = useState(null);  // Add this line
 
     const callPracticing = async () => {
-        const res = await fetch(`http://localhost:5001/api/v1/user/practice/${userId}`, {
+        const res = await fetch(USER_PRACTICE({id: userId}), {
             method: 'PUT',
             headers: {
                'Content-Type': 'application/json',

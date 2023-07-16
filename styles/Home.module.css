@@ -21,7 +21,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.card:hover h2 .arrow {
+.active:hover h2 .arrow {
   transform: translateX(5px);
 }
 
@@ -35,7 +35,7 @@
   text-align: center;
 }
 
-.card:hover {
+.active:hover {
   background: rgba(222, 225, 230, 0.2);
   transform: translateY(-5px);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 20px;

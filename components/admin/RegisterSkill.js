@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import MappedButtons from './MappedButtons'
 import styles from '../../styles/form.module.css'
+import SKILL_REGISTER from '../../utils/api-defs'
 
 const RegisterSkill = ({ attributes }) => {
     const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const RegisterSkill = ({ attributes }) => {
         } else if (difficulty == "") {
             console.log("Please pick a rarity based difficulty")
         } else {
-            await fetch('http://localhost:5001/api/v1/skill/register', {
+            await fetch(SKILL_REGISTER(), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
