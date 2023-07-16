@@ -1,0 +1,107 @@
+.container {
+    padding: 2em;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    background-color: rgb(222, 220, 220);
+}
+
+.adminCard {
+    background-color: rgb(193, 193, 193);
+}
+
+.topCard {
+    border-bottom: 1px solid black;
+    padding: 1em;
+    text-align: center;
+}
+
+.aCard {
+    border-bottom: 1px solid black;
+    padding: 1em;
+}
+
+.infoContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.textContainer {
+    margin-bottom: 1em;
+}
+
+.root {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.back {
+    margin-bottom: 20px;
+}
+
+.attributesList {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.attributesListItem {
+    margin: 5px 0;
+}
+
+.toggle {
+    margin-top: 20px;
+}
+
+.root {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.back {
+    margin-bottom: 20px;
+}
+
+.attributesList {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.attributesListItem {
+    margin: 5px 0;
+}
+
+.toggle {
+    margin-top: 20px;
+}
+
+.li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+@media(prefers-color-scheme: dark) {
+    .card {
+        background-color: rgb(54, 57, 63);
+        color: white;
+        border-color: #ffffff30;
+    }
+}

@@ -1,0 +1,13 @@
+.container {
+    padding: 2em; /* Reduce padding to make the container more compact */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toggle {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Add some space between toggle buttons */
+    margin-bottom: 1em; /* Add margin below the toggle buttons */
+}

@@ -1,0 +1,17 @@
+.container {
+  margin: 10px auto;
+}
+
+
+.active {
+  background-color: #226b9c;
+  ;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .active {
+    background-color: rgb(103, 144, 103);
+    color: white;
+  }
+}

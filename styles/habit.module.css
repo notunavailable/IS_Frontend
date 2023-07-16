@@ -1,0 +1,22 @@
+.container {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .habitCard {
+    border: 1px solid #ddd;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .backLink {
+    color: #0070f3;
+    text-decoration: none;
+    margin-top: 3rem;
+    display: inline-block;
+  }
+  
+  .backLink:hover {
+    text-decoration: underline;
+  }
