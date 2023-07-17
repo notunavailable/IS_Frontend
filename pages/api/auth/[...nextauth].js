@@ -59,8 +59,9 @@ export default NextAuth({
         strategy: 'jwt',
         maxAge: 1 * 24 * 60 * 60, // 1d
     },
-    jwt: {
-        secret: process.env.NEXTAUTH_SECRET,
-        encryption: true,
+    jwt: async ({ token, user }) => {
+        console.log("NEXTAUTH_SECRET:", process.env.NEXT_AUTH_SECRET);
+        if (user) token.id = user.id;
+        return token;
     },
 });
