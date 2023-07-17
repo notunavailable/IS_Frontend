@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'development') {
     ORIGIN = "http://localhost:5001";
 }
 else {
-    ORIGIN = "http://infinitseed.com"
+    ORIGIN = "http://api.infinitseed.com"
 }
 
 export default {ORIGIN};

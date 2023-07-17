@@ -21,7 +21,6 @@ const Login = () => {
             password: password,
             callbackUrl: '/'
         });
-        console.log(status);
     }
 
     const onSignUpSubmit = async () => {
