@@ -18,7 +18,7 @@ const Status = ({ status }) => {
     }
     const renderSkills = status.skills.map((skill, i) => {
         return (
-            <div className={styles.left}>
+            <div className={styles.left} key = {skill.name}>
                 <h3>{skill.name}: {skill.level}</h3>
             </div>
         )
