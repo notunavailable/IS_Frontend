@@ -15,7 +15,7 @@ const SkillList = ({ skills, setPopup, userId }) => {
                             <h4>Experience: {skill.experience}</h4>
                             <PracticingSwitch practicing = {skill.practicing} skillId = {skill.id} userId = {userId}/>
                         </div>
-                        <Link href={`http://localhost:3000/skills/${skill.id}`}>
+                        <Link href={`/skills/${skill.id}`}>
                             <button>ἱ</button>
                         </Link>
                     </div>
