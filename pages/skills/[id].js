@@ -4,11 +4,11 @@ import styles from '../../styles/skills.module.css'
 import hexToRGBA from '../../utils/functions'
 import { getSession } from 'next-auth/react'
 
-const skillPage = ({skill}) => {
-    return(
-        <div className={`${styles.card} ${styles.root}`} style = {{backgroundColor: hexToRGBA(skill.difficulty.color, 0.3)}}>
+const skillPage = ({ skill }) => {
+    return (
+        <div className={`${styles.card} ${styles.root}`} style={{ backgroundColor: hexToRGBA(skill.difficulty.color, 0.3) }}>
             <div className={styles.back}>
-              <Back link = "/Skills"/>
+                <Back link="/Skills" />
             </div>
             <h1>{skill.name} - {skill.difficulty.name}</h1>
             <p>{skill.description}</p>
@@ -26,39 +26,32 @@ const skillPage = ({skill}) => {
 
 export async function getServerSideProps(context) {
     const { id } = context.params;
-    
+
 
     const session = await getSession(context)
     if (!session) {
-      return {
-        redirect: {
-          destination: '/Login',
-          permanent: false,
-        },
-      }
-    }
-    try {
-        const response = await fetch(`http://localhost:5001/api/v1/skill/${id}`);
-        console.log(response)
-        if (!response.ok) {
-            throw new Error(`Error fetching data: ${response.status}`);
-        }
-    
-        let text = await response.text();
-        let skill = null;  
-    
-        if (text.length > 0) {
-            skill = JSON.parse(text);
-        }
         return {
-            props: { skill: skill }
-        };
-    } catch (error) {
-        console.error(error.message);
-        return {
-            notFound: true, // This will render a 404 error page
-        };
+            redirect: {
+                destination: '/Login',
+                permanent: false,
+            },
+        }
     }
+    const response = await fetch(`http://localhost:5001/api/v1/skill/${id}`);
+    if (!response.ok) {
+        throw new Error(`Error fetching data: ${response.status}`);
+    }
+
+    let text = await response.text();
+    let skill = null;
+
+    if (text.length > 0) {
+        skill = JSON.parse(text);
+    }
+    return {
+        props: { skill: skill }
+    };
+
 }
 
 export default skillPage;
