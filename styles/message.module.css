@@ -1,0 +1,30 @@
+.messageModal {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(4px);
+    /* this is not compatible with all browsers, keep an eye on it */
+    background-color: rgba(0, 0, 123, 0.4);
+    z-index: 99999;
+}
+
+.messageModal h1,
+.messageModal h2 {
+    color: #fff;
+}
+
+.messageModal button {
+    position: absolute;
+    right: 20;
+    top: 20;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: white;
+    cursor: 'pointer'
+}

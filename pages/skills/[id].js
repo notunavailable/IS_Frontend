@@ -39,7 +39,7 @@ export async function getServerSideProps(context) {
     }
     try {
         const response = await fetch(`http://localhost:5001/api/v1/skill/${id}`);
-        
+        console.log(response)
         if (!response.ok) {
             throw new Error(`Error fetching data: ${response.status}`);
         }
