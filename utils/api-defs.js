@@ -16,6 +16,7 @@ export const USER_SKILLS = ({id}) => `${ORIGIN}/api/v1/user/skills/${id}`
 export const USER_PRACTICE = ({id}) => `${ORIGIN}/api/v1/user/practice/${id}`
 export const USER_ADDSKILL = ({id}) => `${ORIGIN}/api/v1/user/addSkill/${id}`
 export const USER_REMOVESKILL = ({id}) => `${ORIGIN}/api/v1/user/status/${id}`
+export const USER_MESSAGES = ({id}) => `${ORIGIN}/api/v1/user/messages/${id}`
 
 export const SKILL_GET_ONE = ({id}) => `${ORIGIN}/api/v1/skill/${id}`
 export const SKILL_GET = () => `${ORIGIN}/api/v1/user/skill/`
@@ -27,3 +28,5 @@ export const ATTR_GET = () => `${ORIGIN}/api/v1/attribute/get/all`
 export const ATTR_REGISTER = () => `${ORIGIN}/api/v1/attribute/register`
 
 export const UNRQUEUE_GET_SKILL = () => `${ORIGIN}/api/v1/unrQueue/get/Skill`
+
+export const MESSAGE_SEEN = ({id}) => `${ORIGIN}/api/v1/message/seen/${id}`

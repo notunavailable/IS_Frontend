@@ -8,14 +8,14 @@ import Message from '../components/Message'
 import '../styles/globals.css'
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
-  const [seen, setSeen] = useState(false);
-  const [message, setMessage] = useState(null);
+  const [messages, setMessages] = useState(null);
+  const [messagePointer, setMessagePointer] = useState(-1)
 
   return (
     <SessionProvider session={session}>
-      <Message message = {message} setSeen = {setSeen} setMessage = {setMessage} seen = {seen}/>
+      {messages != null || messagePointer >= 0 ? <Message message={messages[messagePointer]} messagePointer = {messagePointer} setMessagePointer = {setMessagePointer}/> : null}
       <Header />
-      <Component {...pageProps} seen={seen} setSeen={setSeen} message={message} setMessage={setMessage} />
+      <Component {...pageProps} setMessages={setMessages} setMessagePointer = {setMessagePointer}/>
       <Footer />
     </SessionProvider>
   )
