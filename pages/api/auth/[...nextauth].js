@@ -25,21 +25,21 @@ export default NextAuth({
 
                 if (!checkPassword) {
                     client.close();
-                    throw new Error('Incorrect password');
-                }
+                    throw new Error('incorrect_password');
+                  }
 
                 // Update lastLoginDate after successful login
                 await users.updateOne(
-                  { _id: ObjectId(result._id) },
-                  { $set: { lastLoginDate: new Date() } }
+                    { _id: ObjectId(result._id) },
+                    { $set: { lastLoginDate: new Date() } }
                 );
 
                 client.close();
                 return {
-                  email: result.email,
-                  id: result._id,
-                  firstName: result.firstName,
-                  lastName: result.lastName
+                    email: result.email,
+                    id: result._id,
+                    firstName: result.firstName,
+                    lastName: result.lastName
                 };
             },
         }),
@@ -60,7 +60,6 @@ export default NextAuth({
         maxAge: 1 * 24 * 60 * 60, // 1d
     },
     jwt: async ({ token, user }) => {
-        console.log("NEXTAUTH_SECRET:", process.env.NEXT_AUTH_SECRET);
         if (user) token.id = user.id;
         return token;
     },

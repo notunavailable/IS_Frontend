@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/form.module.css';
 import { signIn } from "next-auth/react"
 import { hash } from 'bcryptjs';
 import {USER_REGISTER} from '../utils/api-defs'
+import { useRouter } from 'next/router';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -12,26 +13,39 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [birthday, setBirthday] = useState(new Date());
 
+    const router = useRouter();
+
     const [isSignUp, setIsSignUp] = useState(false);
 
     async function onSignInSubmit() {
-        const status = await signIn('credentials', {
-            redirect: true,
-            email: email,
-            password: password,
-            callbackUrl: '/'
-        });
+        try {
+            const status = await signIn('credentials', {
+                redirect: false,
+                email: email,
+                password: password,
+                callbackUrl: '/'
+            });
+
+            if (status.error) {
+                alert(status.error); 
+            } else {
+                router.push('/');
+            }
+        } catch (error) {
+            if (error.message === 'incorrect_password') {
+                alert('Incorrect password');
+            }
+        }
     }
 
     const onSignUpSubmit = async () => {
-
-        //Validation
         if (!email || !email.includes('@') || !password) {
             alert('Invalid details');
             return;
         }
+
         const hashedPassword = await hash(password, 12);
-        //POST form values
+
         const res = await fetch(USER_REGISTER(), {
             method: 'POST',
             headers: {
@@ -47,10 +61,8 @@ const Login = () => {
             }),
         });
 
-        //Await for data for any desirable next steps
         const data = await res.json();
 
-        //Sign in user
         const status = await signIn('credentials', {
             redirect: true,
             email: email,
@@ -97,33 +109,19 @@ const Login = () => {
                         />
                     </div>
                 </div>
-
             )
         }
         return;
     }
 
-    const renderSignInButton = () => {
-        if (isSignUp) {
-            return;
-        }
-        return (
-            <input
-                type="submit"
-                value="Sign In"
-                onClick={() => onSignInSubmit()}
-            />
-        )
-    }
-
     return (
         <div className={styles.container}>
             <form onSubmit={(e) => {
-                e.preventDefault()
+                e.preventDefault();
                 if (isSignUp) {
                     onSignUpSubmit();
                 } else {
-                    setIsSignUp(true);
+                    onSignInSubmit();
                 }
             }}>
                 <div className={styles.containerItem}>
@@ -144,13 +142,17 @@ const Login = () => {
                 </div>
                 {renderSignUpForm()}
                 <div className={styles.containerItem}>
-                    {renderSignInButton()}
                     <input
                         type="submit"
-                        value="Sign Up"
+                        value={isSignUp ? "Sign Up" : "Sign In"}
                     />
                 </div>
             </form>
+            <div className={styles.containerItem}>
+                <button onClick={() => setIsSignUp(!isSignUp)}>
+                    {isSignUp ? "Already registered? Sign In" : "New user? Sign Up"}
+                </button>
+            </div>
         </div>
     )
 }
