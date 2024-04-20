@@ -1,124 +1,63 @@
-html,
-body {
-  padding: 0;
+/* Reset margin, padding, and box-sizing */
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a p{
-  color: #2980b9;
-}
-
-a:hover {
-  color: #2980b9;
-}
-
-* {
+  padding: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: Roboto;
-  font-size-adjust: 0.5362;
-  margin-bottom: 1rem;
+/* Set a basic font and background for the body */
+body {
+  font-family: 'Arial', sans-serif; /* You can change the font to your preference */
+  background-color: #f4f4f4; /* Light gray background */
+  color: #333; /* Dark gray text */
+  line-height: 1.6;
+  font-size: 16px; /* Base font size */
+  padding: 20px; /* Padding around the content */
 }
 
-h1 {
-  font-weight: 400;
-  font-size: 2rem;
+/* Headers styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica', sans-serif; /* You can change the font to your preference */
+  color: #222; /* Slightly darker text color for headers */
+  margin-bottom: 0.75em;
 }
 
-h2 {
-  font-weight: 400;
-  font-size: 1.5rem;
+/* Link styling */
+a {
+  color: #0070f3; /* Bright blue links */
+  text-decoration: none;
 }
 
-h3 {
-  font-weight: 400;
-  font-size: 1.17rem;
+a:hover {
+  text-decoration: underline;
 }
 
-h4 {
-  font-weight: 400;
-  font-size: 1rem;
-}
-
-input,
-select,
-textarea {
-  font-family: inherit;
-  margin-left: 10px;
-}
-
+/* Button styling */
 button {
-  padding: 8px 12px;
-  background-color: #3498db;
+  font-size: 1em;
+  padding: 10px 20px;
+  background-color: #0070f3; /* Matching the link color */
   color: white;
-  font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 10px;
 }
 
 button:hover {
-  background-color: #226b9c;
+  background-color: #0056b3; /* A darker shade of the button color for hover effect */
 }
 
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    color-scheme: dark;
-    background-color: #222;
-    color: #ddd;
-  }
-  
-  a {
-    color: #87ceeb;
-  }
-
-  a:hover {
-    color: #63a8c2;
-  }
-
-  p,
-  ul,
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: #fff;
-  }
-
-  button {
-    background-color: #63a8c2;
-  }
-
-  button:hover {
-    background-color: #44728a;
-  }
-
-  input,
-  select,
-  textarea {
-    background-color: #333;
-    color: #ccc;
-    border: 1px solid #555;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: #777;
-  }
+/* Container for centering content */
+.container {
+  max-width: 1200px; /* Max width of the container */
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
 }
+
+/* Utility classes for margins and padding */
+.mt-1 { margin-top: 10px; }
+.mb-1 { margin-bottom: 10px; }
+.pl-1 { padding-left: 10px; }
+.pr-1 { padding-right: 10px; }
