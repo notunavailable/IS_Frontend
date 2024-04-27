@@ -15,8 +15,7 @@ let client
 let clientPromise: Promise<MongoClient>
 
 if (process.env.NODE_ENV === "development") {
-    uri = process.env.DSN_DEV;
-    console.log(uri);
+    uri = process.env.DSN_PROD;
     // In development mode, use a global variable so that the value
     // is preserved across module reloads caused by HMR (Hot Module Replacement).
     if (!global._mongoClientPromise) {
