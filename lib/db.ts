@@ -15,7 +15,8 @@ let client
 let clientPromise: Promise<MongoClient>
 
 if (process.env.NODE_ENV === "development") {
-    uri = process.env.DSN_DEV
+    uri = process.env.DSN_DEV;
+    console.log(uri);
     // In development mode, use a global variable so that the value
     // is preserved across module reloads caused by HMR (Hot Module Replacement).
     if (!global._mongoClientPromise) {
@@ -25,14 +26,10 @@ if (process.env.NODE_ENV === "development") {
     clientPromise = global._mongoClientPromise
 
 } else {
-    console.log("DSN_PROD: " +process.env.DSN_PROD);
     uri = process.env.DSN_PROD
-    console.log("1")
     // In production mode, it's best to not use a global variable.
-    //client = new MongoClient(uri)
-    console.log("2")
-    //clientPromise = client.connect()
-    console.log("3")
+    client = new MongoClient(uri)
+    clientPromise = client.connect()
 }
 
 // Export a module-scoped MongoClient promise. By doing this in a
