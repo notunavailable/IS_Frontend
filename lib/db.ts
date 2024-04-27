@@ -27,9 +27,12 @@ if (process.env.NODE_ENV === "development") {
 } else {
     console.log("DSN_PROD: " +process.env.DSN_PROD);
     uri = process.env.DSN_PROD
+    console.log("1")
     // In production mode, it's best to not use a global variable.
-    client = new MongoClient(uri, options)
+    client = new MongoClient(uri)
+    console.log("2")
     clientPromise = client.connect()
+    console.log("3")
 }
 
 // Export a module-scoped MongoClient promise. By doing this in a
