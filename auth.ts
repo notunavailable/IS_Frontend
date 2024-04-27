@@ -20,7 +20,6 @@ const providers = [
             const { email, password } = await signInSchema.parseAsync(credentials)
             let user: any = await adapter.getUserByEmail(email);
             if (user) {
-                console.log(user);
                 const match = await compare(password, user.password);
                 console.log(match)
                 return match ? user : null;
