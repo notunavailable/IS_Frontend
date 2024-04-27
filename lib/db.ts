@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === "development") {
     clientPromise = global._mongoClientPromise
 
 } else {
+    console.log("DSN_PROD: " +process.env.DSN_PROD);
     uri = process.env.DSN_PROD
     // In production mode, it's best to not use a global variable.
     client = new MongoClient(uri, options)

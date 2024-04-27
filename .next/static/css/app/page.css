@@ -1,0 +1,39 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/styles/status.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.status_container__pwS9L {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-radius: 10px;
+    background-color: #4284db;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+    overflow: hidden;
+    
+    padding: 2em;
+    
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+  }
+  
+  .status_row__azySS {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .status_left__LchCz,
+  .status_right__tdbAJ {
+    padding: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 50%;
+  }
+  
+  .status_left__LchCz {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
