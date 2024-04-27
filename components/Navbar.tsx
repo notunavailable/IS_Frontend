@@ -1,12 +1,16 @@
-'use'
 import Link from "next/link";
-import '../styles/globals.css';
+import styles from './styles/navbar.module.css';
+import SignOut from './SignOut'
+import SignIn from "./SignIn";
 
 const Navbar = () => {
     return (
-        <div className="container">
-            <Link href="/skills">Skills</Link>
+        <div className={styles.container}>
             <Link href="/">Home</Link>
+            <Link href="/skills">Skills</Link>
+            <Link href="/register">Register</Link>
+            <SignOut/>
+            <SignIn/>
         </div>
     );
 }
